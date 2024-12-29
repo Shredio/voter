@@ -1,0 +1,28 @@
+{
+	"name": "shredio/voter",
+	"type": "library",
+	"license": "MIT",
+	"require": {
+		"php": ">=8.3",
+		"symfony/security-bundle": "^v7.2.0"
+	},
+	"autoload": {
+		"psr-4": {
+			"Shredio\\Voter\\": "src/"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"Tests\\": "tests/"
+		}
+	},
+	"scripts": {
+		"phpstan": "phpstan analyse",
+		"test": "phpunit tests"
+	},
+	"require-dev": {
+		"phpstan/phpstan": "^2.0",
+		"phpunit/phpunit": "^11.5",
+		"phpstan/phpstan-symfony": "^2.0"
+	}
+}
