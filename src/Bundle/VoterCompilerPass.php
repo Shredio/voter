@@ -3,12 +3,9 @@
 namespace Shredio\Voter\Bundle;
 
 use LogicException;
-use Shredio\Voter\EnhancedVoter;
 use Shredio\Voter\Metadata\VoterMetadataFactory;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\DependencyInjection\Definition;
-use Symfony\Component\DependencyInjection\Reference;
 
 final readonly class VoterCompilerPass implements CompilerPassInterface
 {
@@ -16,9 +13,9 @@ final readonly class VoterCompilerPass implements CompilerPassInterface
 	public function process(ContainerBuilder $container): void
 	{
 		$config = $container->getExtensionConfig('voter')[0] ?? [];
-		$static = $container->getParameterBag()->resolveValue($config['static'] ?? false);
+		$refresh = $container->getParameterBag()->resolveValue($config['refresh'] ?? false);
 
-		if (!$static) {
+		if ($refresh) {
 			return;
 		}
 

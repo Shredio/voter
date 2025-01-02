@@ -44,7 +44,7 @@ final class VoterBundle extends AbstractBundle
 	{
 		$definition->rootNode() // @phpstan-ignore-line
 			->children()
-				->booleanNode('static')->defaultFalse()->end()
+				->booleanNode('refresh')->defaultTrue()->end()
 				->stringNode('name_convention_for_methods')->defaultNull()->end()
 			->end();
 	}
